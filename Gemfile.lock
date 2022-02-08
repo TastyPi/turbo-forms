@@ -154,6 +154,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stimulus-rails (1.0.2)
+      railties (>= 6.0.0)
     strscan (3.0.1)
     thor (1.2.1)
     timeout (0.2.0)
@@ -176,6 +178,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rails (~> 7.0.1)
   sprockets-rails
+  stimulus-rails (~> 1.0)
   turbo-rails (~> 1.0)
   tzinfo-data
 
