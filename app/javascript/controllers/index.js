@@ -3,3 +3,6 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
+
+import RedirectController from "./redirect_controller.js"
+application.register("redirect", RedirectController)
