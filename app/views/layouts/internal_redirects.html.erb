@@ -1,0 +1,21 @@
+<%= content_for :application do %>
+  <h1>Internal redirect example</h1>
+  <%= link_to "Back to examples list", root_path %>
+  <p>
+    In this example a successful request results in a redirect to another page on the same host.
+  </p>
+  <p>
+    There is a <a href="https://github.com/hotwired/turbo/issues/138">GitHub issue</a> discussing this use case, with a
+    lot of hacky workarounds. It turns out the simplest way to achieve this is by not using a <code>turbo-frame</code>.
+    Instead, when an error occurs return a <code>turbo-stream</code> element which updates the form with validation
+    errors, i.e.
+  </p>
+  <ul>
+    <li>On success, return a HTTP 303 response to the URL you would like to redirect the user to
+    <li>
+      On failure, return a <code>&lt;turbo-stream action="replace" target="form_id"&gt;</code> element which includes
+      the form and validation errors.
+  </ul>
+  <%= yield %>
+<% end %>
+<%= render template: "layouts/application" %>

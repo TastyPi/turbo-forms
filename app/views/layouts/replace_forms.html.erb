@@ -1,0 +1,15 @@
+<%= content_for :application do %>
+  <h1>Replace form example</h1>
+  <%= link_to "Back to examples list", root_path %>
+  <p>
+    In this example the form is replaced with other content. No navigation happens in this case (URL is unchanged and
+    nothing is added to the history).
+  </p>
+  <p>
+    This is achieved by wrapping the form in a <code>turbo-frame</code> and having the POST response render a
+    <code>turbo-frame</code> with the same <code>id</code>. By making the <code>turbo-frame</code> element the root of
+    the individual actions' templates, the layout (which this text is part of) is only rendered once.
+  </p>
+  <%= yield %>
+<% end %>
+<%= render template: "layouts/application" %>

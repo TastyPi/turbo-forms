@@ -3,7 +3,7 @@
     <%= form.check_box :error %>
     <%= form.label :error %>
   </div>
-  <%= form.button %>
+  <%= form.button "Submit" %>
   <% example_model.errors.full_messages.each do |error| %>
     <p><%= error %></p>
   <% end %>

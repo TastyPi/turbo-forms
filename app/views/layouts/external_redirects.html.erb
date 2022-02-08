@@ -1,0 +1,23 @@
+<%= content_for :application do %>
+  <h1>External redirect example</h1>
+  <%= link_to "Back to examples list", root_path %>
+  <p>
+    In this example a successful request results in a redirect to an external host.
+  </p>
+  <p>
+    At first you would assume this would be the same as redirecting to an internal page, however Turbo attempts to treat
+    the external page as an internal one because it only checks the host on the original URL. This causes Turbo to
+    attempt to load the page like an internal one, leading to CORS errors. This is discussed in this
+    <a href="https://github.com/hotwired/turbo/issues/401">GitHub issue</a>.
+  </p>
+  <p>
+    The trick is to perform the redirect using JavaScript instead. Since Turbo can't run <code>script</code> elements
+    included in streams (see this <a href="https://github.com/hotwired/turbo/issues/186">GitHub issue</a>) a simple
+    Stimulus controller is created to perform the redirect. To support progressive enhancement, on standard HTML
+    requests a standard redirect response is used, but on a Turbo request a <code>turbo-stream</code> element with
+    <code>action="append"</code> is returned, and it appends a <code>div</code> set up with the redirect Stimulus
+    controller.
+  </p>
+  <%= yield %>
+<% end %>
+<%= render template: "layouts/application" %>

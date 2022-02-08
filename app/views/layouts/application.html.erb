@@ -12,7 +12,7 @@
 
 <body>
   <main>
-    <%= yield %>
+    <%= content_for?(:application) ? yield(:application) : yield %>
   </main>
 </body>
 </html>
