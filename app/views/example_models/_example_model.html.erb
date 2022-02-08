@@ -1,0 +1,10 @@
+<%= form_with model: example_model, url: url, id: "form" do |form| %>
+  <div style="display: flex">
+    <%= form.check_box :error %>
+    <%= form.label :error %>
+  </div>
+  <%= form.button %>
+  <% example_model.errors.full_messages.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
