@@ -11,6 +11,7 @@ class ExternalRedirectsController < ApplicationController
       @url = "https://example.com"
       respond_to do |format|
         format.html { redirect_to @url, allow_other_host: true, status: :see_other }
+        # This will render create.turbo_stream.erb
         format.turbo_stream
       end
     else
